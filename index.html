@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Easy Language</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="style_sheet/ssMobileFit.css">
+    <link rel="stylesheet" type="text/css" href="style_sheet/ssTran.css">
+    <script type = "text/javascript" src="java_script/jsMain.js"></script>
+    <script type = "text/javascript" src="java_script/jsEK.js"></script>
+    <script type = "text/javascript" src="java_script/jsKE.js"></script>
+    <script type = "text/javascript" src="java_script/jsSpeechRecognition.js"></script>
+    <script type = "text/javascript" src="java_script/jsTextToSpeech.js"></script>
+</head>
+<body>
+<div class="fonts">
+<h1 style="color:purple;">&nbsp; &nbsp; Easy Language</h1>
+
+<form>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+<select class="fonts" id = "myListOption" onchange = "myListView();return false" >
+    <option value="1">English to Korean</option>
+    <option value="2">Korean to English</option>
+</select>
+<br></br>
+&nbsp; &nbsp; &nbsp;
+<Button style="background-color: purple; color: white;" class="fonts roundCorners" onClick="myVoice();return false">Voice</Button>
+&nbsp; &nbsp; &nbsp;
+<input style="background-color: green; color: white;" class="fonts roundCorners" type="submit" value="Submit" width="48" height="48" onclick="mySubmit();return false">
+<br></br>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<textarea id="myTextIn" name="myTextInView" rows="4" cols="50">
+How do you say...
+</textarea>
+
+<br></br>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<textarea readonly id="myTextOut" name="myTextOutView" rows="4" cols="50" style="background-color:#D3D3D3;">
+translated text...
+</textarea>
+<br></br>
+
+</form>
+
+</div>
+</body>
+</html>
