@@ -100,13 +100,21 @@ function myHTTP(txt) {
             alert("15.2 else this.status= " + this.status);
             alert("15.3 this.responseText= " + this.responseText);
             alert("15.4 error...");
-            document.getElementById("myTextOut").innerHTML = "한글 server error = " + txt;
+            //txt = "Server error...";
+            //resp = http.request('GET', 'http://127.0.0.1:8080/hello.txt')
+            x = http.request('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt')
+            txt = x.data;
+            if (txt == "") {
+                txt = "Server error...";
+            }
+            document.getElementById("myTextOut").innerHTML = "한글... " + txt;
         }
     }
-
-    xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
-    //xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
-    //xhr.open('GET', 'http://127.0.0.1:8080/example', true);
+    
+    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
+    //xhr.open('GET', 'https://naveropenapi.apigw.ntruss.com/nmt/v1/translation/apple', true);
+    xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
+    //resp = xhr.open('GET', 'http://127.0.0.1:8080/example', true);
     xhr.send();
 
     alert("8...");
