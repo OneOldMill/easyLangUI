@@ -81,7 +81,19 @@ function myHTTP(txt) {
 
     xhr.onreadystatechange = function () {
         if (this.status == 200) {
-        //if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "") {
+            } else {
+                if (txt == this.responseText) {
+                    //txt = "done...";
+                } else {
+                    txt = this.responseText;
+                    document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
+                    //document.getElementById("myTextOut").innerHTML = "한글 apple phonetic= " + txt;
+                    //alert("14.6 txt= " + txt);
+                    myPlay();
+                }
+            }
+             //if (this.readyState == 4 && this.status == 200) {
             //if (xhr.readyState == XMLHttpRequest.DONE) {
             //alert("14.1 this.readyState= " + this.readyState);
             //alert("14.2 this.status= " + this.status);
@@ -92,10 +104,10 @@ function myHTTP(txt) {
             //alert("14.5 txt= " + txt);
 
             //document.getElementById("demo").innerHTML = "test " + this.responseText;
-            document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
+            //document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
             //document.getElementById("myTextOut").innerHTML = "한글 apple phonetic= " + txt;
             //alert("14.6 txt= " + txt);
-            myPlay();
+            //myPlay();
         } else {
             //alert("15.1 this.readyState= " + this.readyState);
             //alert("15.2 else this.status= " + this.status);
@@ -109,13 +121,14 @@ function myHTTP(txt) {
             //    txt = "Server error...";
             //}
             document.getElementById("myTextOut").innerHTML = "한글 Server error...";
+            return txt;
         }
     }
     
-    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example.py', true);
     //xhr.open('GET', 'https://naveropenapi.apigw.ntruss.com/nmt/v1/translation/apple', true);
     //xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
     //xhr.open('GET', 'http://127.0.0.1:8080/example', true);
+    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example.py', true);
     xhr.open('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt', true);
     xhr.send();
 
