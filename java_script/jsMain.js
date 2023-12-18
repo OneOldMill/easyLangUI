@@ -92,7 +92,7 @@ function myHTTP(txt) {
             //alert("14.5 txt= " + txt);
 
             //document.getElementById("demo").innerHTML = "test " + this.responseText;
-            document.getElementById("myTextOut").innerHTML = "한글 (" + this.responseText;
+            document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
             //document.getElementById("myTextOut").innerHTML = "한글 apple phonetic= " + txt;
             //alert("14.6 txt= " + txt);
             myPlay();
