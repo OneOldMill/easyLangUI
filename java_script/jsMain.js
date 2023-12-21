@@ -128,8 +128,9 @@ function myHTTP(txt) {
     //xhr.open('GET', 'https://naveropenapi.apigw.ntruss.com/nmt/v1/translation/apple', true);
     //xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
     //xhr.open('GET', 'http://127.0.0.1:8080/example', true);
+    xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
     //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example.py', true);
-    xhr.open('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt', true);
+    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt', true);
     xhr.send();
 
     //alert("8...");
