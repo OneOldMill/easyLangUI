@@ -52,89 +52,29 @@ function myListView() {
      return myLang;
 }
 function mySubmit() {
-  //alert("1. You clicked Submit!");
-
-  // get input text from textarea
     var txtInput = document.getElementById("myTextIn").value;
-    //alert("2 txtInput= " + txtInput);
-
-    myLang = myListView();
-    //alert("3 myLang= " + myLang);
-
-    //txt = InputSplit(txtInput);
-//
-    sQuery = "SELECT * FROM tbleng_kor WHERE engRoot ='apple'";
-
-    //alert("4 function call myHTTP");
-    txt = "apple123";
-    sText = myHTTP(txt);
-
-    //alert("4.3 sText= " + sText);
-
-    //sTranResult = sTranResult + " " + sText;
-    //alert("4.4 sTranResult= " + sTsTranResultext);
-
+    sText = myHTTP(txtInput);
  return false;
 }
 function myHTTP(txt) {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
-        if (this.status == 200) {
-            if (this.responseText == "") {
-            } else {
-                if (txt == this.responseText) {
-                    //txt = "done...";
-                } else {
-                    txt = this.responseText;
-                    document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
-                    //document.getElementById("myTextOut").innerHTML = "한글 apple phonetic= " + txt;
-                    //alert("14.6 txt= " + txt);
-                    myPlay();
-                }
-            }
-             //if (this.readyState == 4 && this.status == 200) {
-            //if (xhr.readyState == XMLHttpRequest.DONE) {
-            //alert("14.1 this.readyState= " + this.readyState);
-            //alert("14.2 this.status= " + this.status);
-            //alert("14.3 this.responseText= " + this.responseText);
-            //var jObj = JSON.parse(this.responseText)[0];
-            //alert("14.4 jObj= " + jObj); // [object object] error
-            //var txt = jObj.phonetic
-            //alert("14.5 txt= " + txt);
-
-            //document.getElementById("demo").innerHTML = "test " + this.responseText;
-            //document.getElementById("myTextOut").innerHTML = "한글 " + this.responseText;
-            //document.getElementById("myTextOut").innerHTML = "한글 apple phonetic= " + txt;
-            //alert("14.6 txt= " + txt);
-            //myPlay();
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("myTextOut").innerHTML = this.responseText;
+            myPlay();
+            //return txt;
         } else {
-            //alert("15.1 this.readyState= " + this.readyState);
-            //alert("15.2 else this.status= " + this.status);
-            //alert("15.3 this.responseText= " + this.responseText);
-            //alert("15.4 error...");
-            //txt = "Server error...";
-            //resp = http.request('GET', 'http://127.0.0.1:8080/welcome.txt')
-            //x = http.request('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt')
-            //txt = x.data;
-            //if (txt == "") {
-            //    txt = "Server error...";
-            //}
-            document.getElementById("myTextOut").innerHTML = "한글 Server error...";
-            return txt;
+            //document.getElementById("myTextOut").innerHTML = "한글 Server error...";
         }
     }
     
-    //xhr.open('GET', 'https://naveropenapi.apigw.ntruss.com/nmt/v1/translation/apple', true);
     //xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
-    //xhr.open('GET', 'http://127.0.0.1:8080/example', true);
-    xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
-    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example.py', true);
-    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/welcome.txt', true);
-    xhr.send();
-
-    //alert("8...");
-return txt;
+    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
+    //xhr.open('GET', 'http://127.0.0.1:8080/welcome.txt', true);
+    xhr.open('POST', 'http://127.0.0.1:8080/example', true);
+    xhr.send(txt);
+return;
 }
 function InputSplit(sText) {
     // move input text from textarea to arrayIn
