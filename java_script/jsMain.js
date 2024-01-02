@@ -70,12 +70,12 @@ function myHTTP(txt) {
     }
     
     //xhr.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/apple', true);
-    xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
+    //xhr.open('GET', 'https://oneoldmill.github.io/easyLang/example', true);
     //xhr.open('GET', 'http://127.0.0.1:8080/welcome.txt', true);
-    xhr.send();
-    //xhr.open('POST', 'http://127.0.0.1:8080/example', true);
+    //xhr.send();
+    xhr.open('POST', 'http://127.0.0.1:8080/example', true);
     //xhr.open('POST', 'https://oneoldmill.github.io/easyLang/example', true);
-    //xhr.send(txt);
+    xhr.send(txt);
 return;
 }
 function InputSplit(sText) {
